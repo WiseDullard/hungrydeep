@@ -1,11 +1,3 @@
-import time
 
-def intro():
-    
 
-def intro_message_1():
-    print("\n---You Awaken in the Hungry Deep---")
-    time.sleep(1)
-    print("\nThe sound of the gate closing jolts you awake.")
-    time.sleep(1)
-    print("\n")
+intro = "this is some very long test text i am using to see how my code handles longer strings, making sure it prints accurately without cutting off words and such. so far so good, just want to see how it feels to read, my current print rate is one and a half seconds between each line printed, want to make sure that feels natural to the player, maybe i need more maybe less."
