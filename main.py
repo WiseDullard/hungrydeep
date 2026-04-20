@@ -1,6 +1,7 @@
 import textwrap
 import time
 from story.intro import intro
+from entities.player import player
 
 def stylized_print(text):
     if len(text) < 80:
@@ -13,8 +14,8 @@ def stylized_print(text):
 
 
 def main():
+    stylized_print(intro)
     while True:
-        stylized_print(intro)
         command = input("/n> ").lower().strip()
         if command == "quit":
             print("Thanks for playing!")
@@ -30,6 +31,11 @@ def main():
         else:
             print("No command detected.")
 
+        if verb in ["move", "go", "travel", "walk"]:
+            if noun in ["north", "east", "south", "west"]:
+                player.move(noun)
+            else:
+                player.use_stairs(noun)
         
 
 main()

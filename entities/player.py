@@ -1,4 +1,4 @@
-from items import dagger, rations
+from entities.items import dagger, rations
 from world.floor_1 import entrance
 
 
@@ -11,8 +11,21 @@ player.inventory.append(dagger, rations)
 player.location = entrance
 
 #handle movement
-def move(verb, noun):
-    direction = ["north", "east", "south", "west", "up", "down"]
-    if verb in ["move", "go", "travel", "walk"]:
-        if noun in direction:
-            player.location = player.location.exits[noun]
+def move(noun):
+    direction = ["north", "east", "south", "west"]
+    if noun in direction:
+        print(f"You move {player.location.exits[noun]}")
+        player.location = player.location.exits[noun]
+    else:
+        print(f"there is no path {noun}.")
+
+def use_stairs(noun):
+    if noun in ["up", "down"]:
+        if noun == "up":
+            print("You climb up the stairs.")
+            player.location = player.location.floor_access[noun]
+        else:
+            print("You climb down the stairs.")
+            player.location = player.location.floor_access[noun]
+    else:
+        print(f"There is no path {noun}.")

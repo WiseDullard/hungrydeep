@@ -1,11 +1,7 @@
-from rooms import room
-from floor_1 import room_list1
-
-#Create list for rooms
-room_list2 = []
+from world.rooms import room
 
 #Create rooms
-stairwell_1_down = room("Stairwell Bottom", None)
+stairwell_1_down = room("First Stairwell Bottom", None)
 stairwell_1_down.description = ("This floor is notably cooler, the only thing of note is the door to the north")
 
 stone_mouth = room("Mouth Room", None)
@@ -23,7 +19,5 @@ encounter_room_1.description = ("The moment you enter this room the hairs on the
 locked_door_room = room("Locked Room", None)
 locked_door_room.description = ("This room is mecifully empty, save for a lantern placed on the floor to your left.")
 
-#Add rooms to list
-room_list2.append(stairwell_1_down, stone_mouth, key_room, pack_room, encounter_room_1, locked_door_room)
-
-#Link rooms together
+stairwel_2 = room("Second Stairwell", None)
+stairwel_2.description = ("The stairwell before you is massive, it circles the edge of the room and decends down into the darkness. There are no torches here, it would not be safe to decend without a light.")

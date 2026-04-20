@@ -3,4 +3,6 @@ class room(object):
         self.name = name
         self.description = description
         self.exits = {}
+        self.floor_access = {}
         self.items = []
+

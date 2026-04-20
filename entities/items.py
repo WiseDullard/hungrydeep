@@ -4,7 +4,9 @@ class item(object):
         self.description = description
 
 class weapon(item):
-    def __init__(self, equipped, damage):
+    def __init__(self, name, description, equipped, damage):
+        self.name = name
+        self.description = description
         self.equipped = equipped
         self.damage = damage
 
