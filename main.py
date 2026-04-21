@@ -1,20 +1,9 @@
-import textwrap
-import time
-from story.intro import intro
-from entities.player import player
-
-def stylized_print(text):
-    if len(text) < 80:
-        print(text)
-    else:
-        wrapped_text = textwrap.wrap(text, width= 60)
-        for line in wrapped_text:
-            print(line)
-            time.sleep(1.5)
+from story import intro, story_functions
+from entities import player
 
 
 def main():
-    stylized_print(intro)
+    story_functions.story_print(intro.fast_test)
     while True:
         command = input("/n> ").lower().strip()
         if command == "quit":

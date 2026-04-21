@@ -1,31 +1,49 @@
 from entities.items import dagger, rations
-from world.floor_1 import entrance
+from world.floor_1 import room_list1
+from world.floor_2 import room_list2
+from world import dungeon_builder
+from story import story_functions
 
 
-class player(object):
+class Player(object):
     def __init__(self, location):
-        self.inventory = []
         self.location = location
+        self.inventory = []
+        
 
-player.inventory.append(dagger, rations)
-player.location = entrance
+player = Player(room_list1[0])
+player.inventory += [dagger, rations]
 
 #handle movement
 def move(noun):
-    direction = ["north", "east", "south", "west"]
-    if noun in direction:
-        print(f"You move {player.location.exits[noun]}")
+    if noun in player.location.exits:
+        story_functions.story_print(f"You move {noun}")
         player.location = player.location.exits[noun]
+        story_functions.story_print(player.location.description)
+        
     else:
-        print(f"there is no path {noun}.")
+        story_functions.story_print(f"There is no path {noun}.")
 
 def use_stairs(noun):
     if noun in ["up", "down"]:
         if noun == "up":
-            print("You climb up the stairs.")
-            player.location = player.location.floor_access[noun]
+            try: 
+                noun in player.location.exits
+            except:
+                story_functions.story_print(f"There is no path {noun}.")
+            finally:
+                story_functions.story_print("You climb the stairs.")
+                player.location = player.location.floor_access[noun]
+                story_functions.story_print(player.location.description)
         else:
-            print("You climb down the stairs.")
-            player.location = player.location.floor_access[noun]
+            try:
+                noun in player.location.exits
+            except:
+                story_functions.story_print(f"There is no path {noun}.")
+            finally:
+                story_functions.story_print("You descend the stairs.")
+                player.location = player.location.floor_access[noun]
+                story_functions.story_print(player.location.description)
     else:
-        print(f"There is no path {noun}.")
+        story_functions.story_print(f"{noun} is not a valid direction.")
+        
