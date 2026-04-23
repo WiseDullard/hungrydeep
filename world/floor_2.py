@@ -16,15 +16,16 @@ key_room.description = ("This is a nondescript room, the onlything that catches 
 room_list2.append(key_room)
 
 pack_room = room("Pack Room", None)
-pack_room.description = ("This room is in rough shape, the flooring is loose and cracked. Parts of the walls have fallen away revealing the earth beyond. in the south-west corner is a simple leather pack.")
+pack_room.description = ("This room is in rough shape, the flooring is loose and cracked. Parts of the walls have fallen away revealing the earth beyond. There is a simple leather pack on the floor in the south-west corner and a door on the south wall.")
 room_list2.append(pack_room)
 
 encounter_room_1 = room("Encounter Room", None)
-encounter_room_1.description = ("The moment you enter this room the hairs on the back of your neck stand on end. You hear the sound of rapid light taps on the floor in front of you and then you see it. A single human hand scurries out of the dark corner of the room, running on its fingers. A single strikingly blue eye peers at you from the back of the hand, the bones of the wrist and forearm have been twisted into a tail tipped with a blade that hangs above the hand like a scorpion.")
+encounter_room_1.description = ("The moment you enter this room the hairs on the back of your neck stand on end. You hear the light taps on the floor in front of you as a single human hand scurries out of the dark corner of the room, running on its fingers. A single strikingly blue eye peers at you from the back of the hand, the bones of the wrist and forearm have been twisted into a tail tipped with a blade that hangs above the hand like a scorpion.")
 room_list2.append(encounter_room_1)
 
 locked_door_room = room("Locked Room", None)
-locked_door_room.description = ("This room is mecifully empty, save for a lantern placed on the floor to your left.")
+locked_door_room.description = ("This room is mecifully empty, save for a lantern placed on the floor to your left and a door on the west wall.")
+locked_door_room.locked_door["west"] = True
 room_list2.append(locked_door_room)
 
 stairwell_2 = room("Second Stairwell", None)

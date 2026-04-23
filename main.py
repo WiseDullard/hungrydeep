@@ -6,7 +6,7 @@ def main():
     story_functions.story_print(intro.fast_test)
     while True:
         command = input("/n> ").lower().strip()
-        if command == "quit":
+        if command in ["quit", "exit"]:
             print("Thanks for playing!")
             break
 
@@ -16,15 +16,17 @@ def main():
         if len(words) > 1:
             noun = words[1]
         elif len(words) >= 3:
-            print("Commands must be two words long.")
+            print("Commands cannot be more than two words long.")
         else:
-            print("No command detected.")
+            print("No valid command detected.")
 
         if verb in ["move", "go", "travel", "walk"]:
             if noun in ["north", "east", "south", "west"]:
                 player.move(noun)
-            else:
+            elif noun in ["up", "down"]:
                 player.use_stairs(noun)
+            else:
+                print("No valid direction detected.")
         
 
 main()

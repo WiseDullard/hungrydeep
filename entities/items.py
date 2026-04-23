@@ -15,3 +15,8 @@ dagger.description = ("A small dagger, it used to belong to your father.")
 
 rations = item("Rations", None)
 rations.description = ("Two days worth of food, you aren't sure why you have this, nobody comes back from the deep.")
+
+rusted_key = item("Rusted Key", None)
+rusted_key.description = ("A small, slightly rusted iron key.")
+
+
