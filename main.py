@@ -28,5 +28,7 @@ def main():
             else:
                 print("No valid direction detected.")
         
+        elif verb in ["inspect", "examine", "look", "study"]:
+            player.inspect(noun)
 
 main()
