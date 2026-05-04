@@ -1,4 +1,5 @@
 from world import floor_1, floor_2
+from entities import monster
 
 #floor 1 links
 floor_1.entrance.exits["north"] = floor_1.stairwell_1
@@ -26,3 +27,9 @@ floor_2.locked_door_room.exits["north"] = floor_2.encounter_room_1
 floor_2.locked_door_room.exits["west"] = floor_2.stairwell_2
 
 floor_2.stairwell_2.exits["east"] = floor_2.locked_door_room
+
+
+# add entities to rooms
+skitter_hand1 = monster.skitter_hand
+skitter_hand2 = monster.skitter_hand
+floor_2.encounter_room_1.entities += [skitter_hand1, skitter_hand2]

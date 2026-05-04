@@ -6,4 +6,5 @@ class room(object):
         self.floor_access = {}
         self.locked_door = {}
         self.items = []
+        self.entities = []
 

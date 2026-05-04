@@ -4,6 +4,7 @@ class monster(object):
         self.health = health
         self.defence = defence
         self.damage = damage
+        self.is_alive = True
 
 skitter_hand = monster("Skitter-hand", 20, 0, 10)
 

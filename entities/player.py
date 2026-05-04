@@ -11,10 +11,37 @@ class Player(object):
         self.health = health
         self.defence = defence
         self.inventory = []
+        self.weapon = []
+        self.is_alive = True
         
 
 player = Player(room_list1[0], 100, 0)
 player.inventory += [items.dagger, items.food]
+
+#equip
+def equip(noun):
+    if noun in player.inventory:
+        if noun.equippable:
+            if noun.is_weapon:
+                noun.equipped = True
+                player.weapon = []
+                player.weapon.append(noun)
+                return
+            noun.equipped = True
+            if noun.defence > player.defence:
+                player.defence = noun.defence
+            return
+        else:
+            print("You cannot equip that.")
+            return
+    else:
+         vowels = ["a", "e", "i", "o", "u"]
+         if noun.lower().startswith(vowels):
+             print(f"You do not have an {noun}.")
+         else:
+             print(f"You do not have a {noun}.")
+    return
+        
 
 #inspecting
 def inspect(noun):
@@ -85,4 +112,9 @@ def drop(noun):
         
     else:
         print(f"You do not have a {noun}.")
+
+#game over
+def game_over():
+    story_functions.story_print("As you fall to the floor and your conciousness fades, red vines emerge from between the flagstones and wrap themselves around you. The depths have claimed you.")
+    print("--- Game Over ---")
 
