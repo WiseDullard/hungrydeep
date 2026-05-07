@@ -30,6 +30,8 @@ floor_2.stairwell_2.exits["east"] = floor_2.locked_door_room
 
 
 # add entities to rooms
-skitter_hand1 = monster.skitter_hand
-skitter_hand2 = monster.skitter_hand
+skitter_hand1 = monster.skitter_hand()
+skitter_hand1.name = "Skitter Hand 1"
+skitter_hand2 = monster.skitter_hand()
+skitter_hand2.name = "Skitter Hand 2"
 floor_2.encounter_room_1.entities += [skitter_hand1, skitter_hand2]

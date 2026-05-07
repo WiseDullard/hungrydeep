@@ -1,3 +1,5 @@
+import time
+
 from entities import items
 from world.floor_1 import room_list1
 from world.floor_2 import room_list2
@@ -11,11 +13,12 @@ class Player(object):
         self.health = health
         self.defence = defence
         self.inventory = []
-        self.weapon = []
+        self.weapon = None
         self.is_alive = True
+        self.previous_room = None
         
 
-player = Player(room_list1[0], 100, 0)
+player = Player(room_list2[3], 100, 0)
 player.inventory += [items.dagger, items.food]
 
 #equip
@@ -24,8 +27,8 @@ def equip(noun):
         if noun.equippable:
             if noun.is_weapon:
                 noun.equipped = True
-                player.weapon = []
-                player.weapon.append(noun)
+                player.weapon = None
+                player.weapon = noun
                 return
             noun.equipped = True
             if noun.defence > player.defence:
@@ -75,8 +78,13 @@ def move(noun):
         return
     
     story_functions.story_print(f"You move {noun}.")
+    player.previous_room  = player.location
     player.location = player.location.exits[noun]
-    story_functions.story_print(player.location.description)
+    if player.location.visited == False:
+        story_functions.story_print(player.location.description)
+        player.location.visited = True
+    else:
+        story_functions.story_print(player.location.visited_description)
 
 #separate code for using stairs
 def use_stairs(noun):
@@ -91,6 +99,7 @@ def use_stairs(noun):
         return
     
     story_functions.story_print("You descend the stairs.")
+    player.previous_room = player.location
     player.location = player.location.floor_access[noun]
     story_functions.story_print(player.location.description)
 
@@ -117,4 +126,8 @@ def drop(noun):
 def game_over():
     story_functions.story_print("As you fall to the floor and your conciousness fades, red vines emerge from between the flagstones and wrap themselves around you. The depths have claimed you.")
     print("--- Game Over ---")
+    time.sleep(1.5)
+    print("Thanks for playing!")
+    exit()
+    
 

@@ -6,8 +6,17 @@ class monster(object):
         self.damage = damage
         self.is_alive = True
 
-skitter_hand = monster("Skitter-hand", 20, 0, 10)
+class skitter_hand(monster):
+    def __init__(self):
+        super().__init__("Skitter-hand", 20, 0, 10)
+    
 
-ghost = monster("Ghost", 100, 100, 30)
+class ghost(monster):
+    def __init__(self):
+        super().__init__("Ghost", 100, 100, 30)
+    
 
-hollow_giant = monster("Hollow Giant", 100, 100, 50)
+class hollow_giant(monster):
+    def __init__(self):
+        super().__init__("Hollow-Giant", 100, 100, 40)
+    

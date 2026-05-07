@@ -1,10 +1,14 @@
 from story import intro, story_functions
 from entities import player
+from combat import battle_manager
 
 
 def main():
     story_functions.story_print(intro.fast_test)
     while True:
+        if len(player.player.location.entities) >= 1:
+            battle_manager.start_battle()
+
         command = input("/n> ").lower().strip()
         if command in ["quit", "exit"]:
             print("Thanks for playing!")
