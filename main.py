@@ -86,6 +86,9 @@ def main():
                 print("Command must have target.")
             continue
 
+        else:
+            print("No command detected.")
+
         #elif verb == "stab":
             #if noun == "heart":
                 #if player.player.location.name.lower == "heart chamber-by the heart":
