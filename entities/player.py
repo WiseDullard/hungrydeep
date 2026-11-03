@@ -125,7 +125,6 @@ def move(noun):
 
     if player.location.visited == False:
         if player.location.name.lower() == "heart chamber-by the stairwell":
-            
             if lantern.is_lit == False:
                 story_functions.story_print("You get the feeling the chamber you are in is massive, the only thing you can see is a faint red glow pulsing slowly at the far end of the chamber.")
                 return
