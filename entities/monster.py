@@ -14,6 +14,7 @@ class skitter_hand(monster):
 class ghost(monster):
     def __init__(self):
         super().__init__("Ghost", 100, 100, 30)
+        self.distance = 3
     
 
 class hollow_giant(monster):

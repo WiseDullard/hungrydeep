@@ -7,6 +7,7 @@ class room(object):
         self.exits = {}
         self.floor_access = {}
         self.locked_door = {}
+        self.crumbling_wall = {}
         self.items = []
         self.entities = []
 

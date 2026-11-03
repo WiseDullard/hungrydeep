@@ -5,7 +5,7 @@ room_list1 = []
 # Create rooms
 entrance = room("The Entrance", None, None)
 entrance.description = ("The room is small, there is a door to the North of you, and to the South is the heavy iron gate, shut tight against the world")
-entrance.visited_description = ("This is the room you woke up in, the gate to the outside remains locked with no way to open it.")
+entrance.visited_description = ("This is the room you woke up in, the gate to the outside remains locked with no way to open it. There is a door to the north.")
 room_list1.append(entrance)
 
 stairwell_1 = room("Stairwell", None, None)
